@@ -1,0 +1,17 @@
+version: '3'
+services:
+  chichi_filemanager:
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - upload:/app/UploadPath
+    ports:
+      - 3005:3005
+volumes:
+   upload:
+     external:
+       name: FileManager
+
+
