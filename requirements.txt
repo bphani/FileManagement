@@ -1,2 +1,4 @@
+starlette
 pydantic
-fastapi
+fastapi[all]
+pymongo

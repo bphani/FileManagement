@@ -1,9 +1,10 @@
 {
   "URL": "",
   "Database": {
+    "Name": "FileManagement",
     "Collections": {
       "Files": "Files"
     }
   },
-  "UploadFolderLocation": ""
+  "UploadFolderLocation": "./UploadPath"
 }
