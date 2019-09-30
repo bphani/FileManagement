@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from API.UploadApi import upload_route
+from API.DownloadApi import download_route
 from uvicorn import run
 
 app = FastAPI()
@@ -7,6 +8,7 @@ app = FastAPI()
 
 # assign routes
 app.include_router(upload_route)
+app.include_router(download_route)
 
 # @app.middleware("http")
 # async def add_process_time_header(request: Request,call_next):

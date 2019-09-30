@@ -1,7 +1,5 @@
-from datetime import datetime
 from Models.Object import Object
 from fastapi import File, UploadFile
-import re
 from DataBase.DB import files_collection
 from Classes.FileActionTools import FileTools
 
@@ -21,4 +19,4 @@ class UploadHandler:
         # insert model to database
         item = files_collection.insert_one(file_for_db.__dict__)
         # return id of uploaded file for download
-        return {"Id": str(item.inserted_id)}
+        return {"UploadId": str(item.inserted_id)}
