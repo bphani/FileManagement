@@ -3,7 +3,6 @@ from bson.objectid import ObjectId
 from starlette.responses import FileResponse
 from Classes.FileActionTools import FileTools
 from Classes.Tools import Tools
-from starlette.responses import Err
 
 
 class DownloadHandler:
