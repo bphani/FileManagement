@@ -1,4 +1,4 @@
+cryptography
+requests
 starlette
 pydantic
-fastapi[all]
-pymongo

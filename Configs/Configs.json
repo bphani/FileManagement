@@ -1,4 +1,5 @@
 {
+  "MicroServiceManagementURl": "http://chichiapp.ir:30030",
   "URL": "",
   "Database": {
     "Name": "FileManagement",
