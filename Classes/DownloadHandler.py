@@ -4,7 +4,8 @@ from starlette.responses import FileResponse
 from Classes.FileActionTools import FileTools
 from Classes.Tools import Tools
 
-
+# todo : check permission for download
+# todo : upadate download count
 class DownloadHandler:
     @staticmethod
     def download(file_id):

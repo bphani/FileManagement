@@ -3,7 +3,8 @@ from Classes.UploadHandler import UploadHandler
 from Models.ResponseModels import UploadFileResponse
 
 upload_route = APIRouter()
-
+# todo : adding upload properties
+# todo : check user permission for uploading form server
 
 @upload_route.post('/upload/data-form/', tags=["UPLOAD"],response_model=UploadFileResponse)
 async def upload_file_form_data(file: UploadFile = File(...)
