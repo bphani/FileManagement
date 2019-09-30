@@ -3,6 +3,7 @@ from bson.objectid import ObjectId
 from starlette.responses import FileResponse
 from Classes.FileActionTools import FileTools
 from Classes.Tools import Tools
+from starlette.responses import Err
 
 
 class DownloadHandler:
@@ -10,6 +11,8 @@ class DownloadHandler:
     def download(file_id):
         try:
             file = files_collection.find_one({'_id': ObjectId(file_id)}, {"Name", "MimeType"})
+            if file is None:
+                raise Exception(Tools.errors("INF"))
             path = FileTools.save_file_path(file["Name"])
             return FileResponse(path, media_type=file['MimeType'])
         except Exception as ex:
