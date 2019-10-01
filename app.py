@@ -1,22 +1,23 @@
 from fastapi import FastAPI
 from API.UploadApi import upload_route
 from API.DownloadApi import download_route
+from starlette.requests import Request
 from uvicorn import run
 
 app = FastAPI()
-
 
 # assign routes
 app.include_router(upload_route)
 app.include_router(download_route)
 
+
 # @app.middleware("http")
-# async def add_process_time_header(request: Request,call_next):
-#     start_time = time.time()
+# async def add_process_time_header(request: Request, call_next):
+#     print(request.headers["Id"], request.headers["Token"])
 #     response = await call_next(request)
-#     process_time = time.time() - start_time
-#     response.headers["X-Process-Time"] = str(process_time)
+#     response.headers["X-Process-Time"] = 335
 #     return response
+
 
 @app.get("/", tags=["Main"])
 def index():

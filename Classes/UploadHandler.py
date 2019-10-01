@@ -7,6 +7,7 @@ from Classes.FileActionTools import FileTools
 class UploadHandler:
     @staticmethod
     def upload_file(file: UploadFile, mime_type, permission_level, uploader_id, file_size, category):
+        print(file,mime_type)
         # create safe and unique file name
         new_file_name = FileTools.file_name_generator(mime_type)
         # initialize file's model
@@ -17,6 +18,6 @@ class UploadHandler:
         FileTools.save_file(file, new_file_name)
 
         # insert model to database
-        item = files_collection.insert_one(file_for_db.__dict__)
+        item = files_collection.insert_one(file_for_db.dict())
         # return id of uploaded file for download
         return {"UploadId": str(item.inserted_id)}
