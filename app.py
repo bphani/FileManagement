@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from API.UploadApi import upload_route
 from API.DownloadApi import download_route
 from starlette.requests import Request
+from starlette.middleware.cors import CORSMiddleware
+
 from uvicorn import run
 
 app = FastAPI()
@@ -18,6 +20,20 @@ app.include_router(download_route)
 #     response.headers["X-Process-Time"] = 335
 #     return response
 
+origins = [
+    "http://localhost.tiangolo.com",
+    "https://localhost.tiangolo.com",
+    "http:localhost",
+    "http:localhost:8080",
+    "*"
+]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/", tags=["Main"])
 def index():
