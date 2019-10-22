@@ -14,4 +14,4 @@ upload_route = APIRouter()
                    tags=["UPLOAD"],
                    response_model=UploadFileResponse)
 async def upload_file_form_data(request: Request, file: UploadFile = File(...), PermissionLevel: str = Form(...)):
-    return UploadHandler.upload_file(file, file.content_type, PermissionLevel, request.headers["Id"], 0, "ProductImage")
+    return UploadHandler.upload_file(file, file.filename, PermissionLevel, request.headers["Id"], 0, "ProductImage")

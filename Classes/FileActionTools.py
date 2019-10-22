@@ -3,6 +3,7 @@ from Models.Object import Object
 from fastapi import UploadFile
 import re
 import json
+import os
 
 with open('./Configs/Configs.json') as f:
     configs = json.load(f)
@@ -14,10 +15,12 @@ class FileTools:
     @staticmethod
     def file_name_generator(file_extension):
         # mime-type
-        file_extension = str(file_extension).split('/')[1]
+        filename, file_extension = os.path.splitext(file_extension)
+        #file_extension = str(file_extension).split('/')[1]
+
         new_file_name = str(datetime.now())
         result = re.sub("[^0-9]", '_', new_file_name)
-        return f"{result}.{file_extension}"
+        return f"{result}{file_extension}"
 
     @staticmethod
     def save_file_path(file_name):

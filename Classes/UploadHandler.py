@@ -6,12 +6,12 @@ from Classes.FileActionTools import FileTools
 
 class UploadHandler:
     @staticmethod
-    def upload_file(file: UploadFile, mime_type, permission_level, uploader_id, file_size, category):
-        print(file,mime_type)
+    def upload_file(file: UploadFile, filename, permission_level, uploader_id, file_size, category):
+
         # create safe and unique file name
-        new_file_name = FileTools.file_name_generator(mime_type)
+        new_file_name = FileTools.file_name_generator(filename)
         # initialize file's model
-        file_for_db = Object(Name=new_file_name, FileSize=int(file_size), MimeType=mime_type,
+        file_for_db = Object(Name=new_file_name, FileSize=int(file_size),# MimeType=mime_type,
                              PermissionLevel=permission_level, UploaderId=uploader_id,
                              Category=category, Status="Uploaded")
         # save file
