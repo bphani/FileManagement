@@ -8,6 +8,8 @@ from uvicorn import run
 
 app = FastAPI()
 
+
+
 # assign routes
 app.include_router(upload_route)
 app.include_router(download_route)
@@ -23,9 +25,9 @@ app.include_router(download_route)
 origins = [
     "http://localhost.tiangolo.com",
     "https://localhost.tiangolo.com",
-    "http:localhost",
-    "http:localhost:8080",
-    "*"
+    "http://localhost",
+    "http://localhost:8080",
+    "http://localhost:3000"
 ]
 app.add_middleware(
     CORSMiddleware,
