@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI ,Form
 from API.UploadApi import upload_route
 from API.DownloadApi import download_route
 from starlette.requests import Request
@@ -40,6 +40,10 @@ app.add_middleware(
 @app.get("/", tags=["Main"])
 def index():
     return {"amin": 34}
+
+@app.post("/ehsan/taghavi/fucking-test")
+def fucking_test(Taghavi:str=Form(...)):
+    return f"Fuck you {Taghavi}"
 
 
 if __name__ == '__main__':
