@@ -19,6 +19,10 @@ def upload_file():
     }).content
     print(a)
 
+def test():
+    a = requests.post("http://chichiapp.ir:3005/ehsan/taghavi/fucking-test",data={"Taghavi":"amin"})
+    print(a.content)
+
 
 if __name__ == '__main__':
-    upload_file()
+    test()

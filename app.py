@@ -41,6 +41,7 @@ app.add_middleware(
 def index():
     return {"amin": 34}
 
+
 @app.post("/ehsan/taghavi/fucking-test")
 def fucking_test(Taghavi:str=Form(...)):
     return f"Fuck you {Taghavi}"
