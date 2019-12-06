@@ -48,7 +48,8 @@
 #COPY . /app
 #WORKDIR /app
 #RUN pip  install -r requirements.txt
-FROM includeamin/ubuntu_fastapi:latest
+#FROM includeamin/ubuntu_fastapi:latest
+FROM includeamin/ubuntu_fastapi:v2
 EXPOSE 3005
 RUN mkdir app
 COPY . ./app
