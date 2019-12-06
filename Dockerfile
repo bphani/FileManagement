@@ -54,4 +54,4 @@ RUN mkdir app
 COPY . ./app
 RUN cd app && ls
 WORKDIR app
-CMD ["/usr/local/bin/gunicorn" , "app:app","-w","4", "-k", "uvicorn.workers.UvicornWorker","--bind","0.0.0.0:3005","--log-level","debug","--threads=2"]
+CMD ["/usr/local/bin/gunicorn" , "app:app","-w","2", "-k", "uvicorn.workers.UvicornWorker","--bind","0.0.0.0:3005","--log-level","debug","--threads=2"]

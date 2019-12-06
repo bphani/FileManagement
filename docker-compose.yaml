@@ -12,6 +12,6 @@ services:
 volumes:
    upload:
      external:
-       name: file_manager
+       name: file-manager
 
 
